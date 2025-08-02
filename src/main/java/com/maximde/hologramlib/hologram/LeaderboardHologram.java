@@ -154,8 +154,10 @@ public class LeaderboardHologram {
                 .map(data -> data.split(":")[0])
                 .flatMap(PlayerUtils::getUUID)
                 .orElse(UUID.randomUUID());
-
-
+        try {
+            System.out.println("Top player name: " + sortedData.get(1).split(":")[0]);
+        } catch (Exception ignore) {}
+        System.out.println("Top player UUID: " + topPlayerUUID);
 
         if (options.topPlayerHead()) {
             updateFirstPlaceHead(topPlayerUUID);
@@ -171,9 +173,11 @@ public class LeaderboardHologram {
         try {
             ItemStack headItem;
             List<ItemProfile.Property> properties = new ArrayList<>();
+            String skinUrl = PlayerUtils.getPlayerSkinUrl(uuid);
+            System.out.println(skinUrl);
             properties.add(new ItemProfile.Property(
                     "textures",
-                    Base64.getEncoder().encodeToString(("{\"textures\":{\"SKIN\":{\"url\":\"" + PlayerUtils.getPlayerSkinUrl(uuid) + "\"}}}").getBytes()),
+                    Base64.getEncoder().encodeToString(("{\"textures\":{\"SKIN\":{\"url\":\"" + skinUrl + "\"}}}").getBytes()),
                     null));
             headItem = new ItemStack.Builder()
                     .type(ItemTypes.PLAYER_HEAD)

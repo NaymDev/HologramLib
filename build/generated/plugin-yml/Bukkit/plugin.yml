@@ -1,0 +1,14 @@
+name: HologramLib
+version: 1.7.7
+main: com.maximde.hologramlib.Main
+author: MaximDe
+depend:
+  - packetevents
+libraries:
+  - org.jetbrains.kotlin:kotlin-stdlib:2.0.21
+  - org.jetbrains.kotlin:kotlin-reflect:2.0.21
+api-version: "1.19"
+softdepend:
+  - ItemsAdder
+  - PlaceholderAPI
+folia-supported: true
