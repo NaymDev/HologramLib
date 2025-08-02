@@ -78,6 +78,7 @@ public class PlayerUtils {
 
                 return textures.has("SKIN") ? textures.getAsJsonObject("SKIN").get("url").getAsString() : null;
         } catch (Exception exception) {
+            exception.printStackTrace();
             return "https://textures.minecraft.net/texture/60a5bd016b3c9a1b9272e4929e30827a67be4ebb219017adbbc4a4d22ebd5b1";
         }
     }
